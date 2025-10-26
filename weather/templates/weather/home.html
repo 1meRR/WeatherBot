@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Weather</h1>
+<form method="get">
+    {{ form.city }}
+    <button type="submit">Search</button>
+</form>
+{% if result %}
+<div class="weather">
+    {% if result.icon %}
+    <img src="https://openweathermap.org/img/wn/{{ result.icon }}@2x.png" alt="icon">
+    {% endif %}
+    <div>
+        <div><strong>{{ result.city }}</strong></div>
+        <div>{{ result.temperature }} °C</div>
+        <div>{{ result.description }}</div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

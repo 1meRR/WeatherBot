@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>WeatherBot</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; background: #f8f9fa; }
+        .container { max-width: 640px; margin: auto; background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,.05); }
+        form { display: flex; gap: 1rem; }
+        input[type=text] { flex: 1; padding: .5rem; }
+        button { padding: .6rem 1.2rem; background: #1e88e5; border: none; color: #fff; border-radius: 4px; cursor: pointer; }
+        .weather { margin-top: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+        .messages { color: #d32f2f; margin-bottom: 1rem; }
+        nav a { margin-right: 1rem; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border-bottom: 1px solid #eee; padding: .5rem; text-align: left; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav>
+        <a href="/">Home</a>
+        <a href="/history/">History</a>
+    </nav>
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div>{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>
