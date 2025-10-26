@@ -1,0 +1,11 @@
+from __future__ import annotations
+
+from django.contrib import admin
+
+from .models import User
+
+
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    list_display = ('username', 'email', 'telegram_id', 'is_staff')
+    search_fields = ('username', 'email', 'telegram_id')
